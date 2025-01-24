@@ -14,7 +14,7 @@ You will need the following things properly installed on your computer.
 
 ## Demo
 
-[https://ember-team-management-fpz0qzt7r-michaelm96s-projects.vercel.app/](https://ember-team-management-fpz0qzt7r-michaelm96s-projects.vercel.app/)
+[https://ember-team-management-51n9tlfj1-michaelm96s-projects.vercel.app/](https://ember-team-management-51n9tlfj1-michaelm96s-projects.vercel.app/)
 
 ## Environment Variables
 
