@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import axios from 'axios';
-import config from '../../config/environment';
+import config from 'ember-team-management/config/environment';
 
 export default class ApiService extends Service {
   baseUrl = config.API_BASE_URL;
