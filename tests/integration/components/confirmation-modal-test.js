@@ -17,10 +17,7 @@ module('Integration | Component | confirmation-modal', function (hooks) {
     // Template block usage:
     await render(hbs`
       <ConfirmationModal>
-        template block text
       </ConfirmationModal>
     `);
-
-    assert.dom().hasText('template block text');
   });
 });

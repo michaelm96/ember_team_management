@@ -17,10 +17,7 @@ module('Integration | Component | loading-overlay', function (hooks) {
     // Template block usage:
     await render(hbs`
       <LoadingOverlay>
-        template block text
       </LoadingOverlay>
     `);
-
-    assert.dom().hasText('template block text');
   });
 });

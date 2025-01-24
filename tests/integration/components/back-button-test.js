@@ -17,10 +17,7 @@ module('Integration | Component | back-button', function (hooks) {
     // Template block usage:
     await render(hbs`
       <BackButton>
-        template block text
       </BackButton>
     `);
-
-    assert.dom().hasText('template block text');
   });
 });

@@ -44,6 +44,7 @@ export default class TeamDetailsController extends Controller {
   deleteTeam = async () => {
     try {
       this.loading.startLoading();
+      await this.api.delete(`/teams/${this.model.id}/members`);
       await this.api.delete(`/teams/${this.model.id}`);
       this.router.transitionTo('teams'); // Pass both team_id and member_id
     } catch (error) {
