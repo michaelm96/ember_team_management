@@ -1,3 +1,5 @@
 {{page-title "Ember Team Management"}}
-
-{{outlet}}
+<LoadingOverlay @isLoading={{this.loading.isLoading}} />
+<div class="mx-4">
+  {{outlet}}
+</div>
