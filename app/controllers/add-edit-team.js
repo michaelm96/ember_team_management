@@ -21,13 +21,15 @@ export default class AddEditTeamController extends Controller {
         description: this.model.description,
       };
 
+      let teamId = this?.model?.id;
       if (this.model.id) {
         await this.api.put(`/teams/${this.model.id}`, data);
       } else {
-        await this.api.post('/teams', data);
+        const res = await this.api.post('/teams', data);
+        teamId = res.id;
       }
 
-      this.router.transitionTo('teams');
+      this.router.transitionTo('team-details', teamId);
     } catch (error) {
       console.log(error, '@save team');
     }

@@ -1,2 +1,33 @@
-{{page-title "AddEditMember"}}
-{{outlet}}
+<LoadingOverlay @isLoading={{this.loading.isLoading}} />
+<div class="flex align-center gap-4 mb-8">
+  <BackButton />  <p class="page-title">{{if this.model.member.id "Edit Member" "Add Member"}}</p>
+</div>
+<div class="form-container py-4">
+  <form class="w-full flex flex-col gap-4" {{on "submit" this.saveMember}}>
+    <div class="flex justify-between">
+      <label for="member-name" class="bold">Member Name:</label>
+      <input
+        id="member-name"
+        type="text"
+        value={{this.model.member.name}}
+        {{on "input" this.updateMemberName}}
+        required
+        class="input-text"
+      />
+    </div>
+  
+    <div class="flex justify-between">
+      <label for="member-role" class="bold">Member Role:</label>
+      <input
+        id="member-role"
+        type="text"
+        value={{this.model.member.role}}
+        {{on "input" this.updateMemberRole}}
+        required
+        class="input-text"
+      />
+    </div>
+  
+    <button type="submit" class="submit-button">Save Member</button>
+  </form>
+</div>

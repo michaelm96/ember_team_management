@@ -1,2 +1,118 @@
-{{page-title "TeamDetails"}}
-{{outlet}}
+<LoadingOverlay @isLoading={{this.loading.isLoading}} />
+<div class="flex align-center gap-4 mb-8">
+  <BackButton />
+  <p class="page-title">Teams Details</p>
+</div>
+<div class="mb-16">
+  <div class="flex align-center justify-between">
+    <div class="text-20 flex"><b
+        class="w-120 mr-8"
+      >Name:</b>&nbsp;{{this.model.name}}</div>
+    <button
+      type="button"
+      class="btn edit-delete-btn edit-color flex align-center gap-4"
+      {{on "click" (fn this.goToEditTeam this.model.id)}}
+    >
+      <SvgIcon @name="edit-icon" @alt="edit-icon" @width="20" @height="20" />
+      Edit Team</button>
+  </div>
+
+  <div class="flex align-center justify-between">
+    <div class="text-20 flex"><b
+        class="w-120 mr-8"
+      >Description:</b>&nbsp;{{this.model.description}}</div>
+    <button
+      type="button"
+      class="btn edit-delete-btn delete-color flex align-center gap-4"
+      {{on
+        "click"
+        (fn
+          this.openModal
+          (hash
+            name=this.model.name
+            description=this.model.description
+            id=this.model.id
+            members=this.model.members
+            from="DELETE_TEAM"
+          )
+        )
+      }}
+    >
+      <SvgIcon
+        @name="delete-icon"
+        @alt="delete-icon"
+        @width="20"
+        @height="20"
+      />
+      Delete Team</button>
+  </div>
+
+</div>
+
+<div class="flex justify-between mb-4">
+  <b class="text-2rem">Members</b>
+  <button
+    type="button"
+    class="btn edit-delete-btn add-color flex align-center gap-4"
+    {{on "click" this.goToAddMember}}
+  >
+    <SvgIcon @name="add-icon" @alt="add-icon" @width="20" @height="20" />Add
+    Member</button>
+</div>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model.members as |member|}}
+        <tr class="w-full">
+          <td class="bold w-33">{{member.name}}</td>
+          <td class="bold w-33">{{member.role}}</td>
+          <td class="flex justify-center gap-4">
+            <button
+              class="edit-btn btn edit-delete-btn edit-color flex align-center gap-4"
+              type="button"
+              {{on "click" (fn this.goToEditMember member.id)}}
+            >
+              <SvgIcon
+                @name="edit-icon"
+                @alt="edit-icon"
+                @width="20"
+                @height="20"
+              />Edit</button>
+            <button
+              type="button"
+              class="btn edit-delete-btn delete-color flex align-center gap-4"
+              {{on
+                "click"
+                (fn
+                  this.openModal (hash memberId=member.id from="DELETE_MEMBER")
+                )
+              }}
+            ><SvgIcon
+                @name="delete-icon"
+                @alt="delete-icon"
+                @width="20"
+                @height="20"
+              />Delete</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{#if this.showModal}}
+  <ConfirmationModal
+    @confirmationTitle={{this.titleMessage}}
+    @message={{this.modalMessage}}
+    @onConfirm={{this.deleteFunc}}
+    @onClose={{this.closeModal}}
+  />
+{{/if}}
