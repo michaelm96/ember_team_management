@@ -1,0 +1,25 @@
+<div class="form-container py-4">  
+  <form class="w-full flex flex-col gap-4" {{on "submit" @onSave}}>  
+    <div class="flex justify-between">  
+      <label for={{@firstFor}} class="bold">{{@firstLabel}}</label>  
+      <input  
+        type="text"  
+        id={{@firstFor}}  
+        value={{@firstValue}}  
+        {{on "input" @firstFunc}}
+        class="input-text"  
+      />  
+    </div>  
+    <div class="flex justify-between">  
+      <label for={{@secondFor}} class="bold">{{@secondLabel}}</label>  
+      <input  
+        type="text"  
+        id={{@secondFor}}  
+        value={{@secondValue}}  
+        {{on "input" @secondFunc}}
+        class="input-text"  
+      />  
+    </div>  
+    <button type="submit" class="submit-button">Save</button>  
+  </form>  
+</div>  
