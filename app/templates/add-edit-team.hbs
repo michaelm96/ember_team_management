@@ -3,29 +3,4 @@
   <BackButton />
   <p class="page-title">{{if this.model.id "Edit Team" "Add New Team"}}</p>
 </div>
-
-<div class="form-container py-4">
-  <form class="w-full flex flex-col gap-4" {{on "submit" this.saveTeam}}>
-    <div class="flex justify-between">
-      <label for="teamName" class="bold">Name:</label>
-      <input
-        type="text"
-        id="teamName"
-        value={{this.model.name}}
-        {{on "input" this.updateTeamName}}
-        class="input-text"
-      />
-    </div>
-    <div class="flex justify-between">
-      <label for="teamDescription" class="bold">Description:</label>
-      <input
-        type="text"
-        id="teamDescription"
-        value={{this.model.description}}
-        {{on "input" this.updateTeamDescription}}
-        class="input-text"
-      />
-    </div>
-    <button type="submit" class="submit-button">Save</button>
-  </form>
-</div>
+<DynamicForm @firstFor="name" @firstLabel="Name:" @firstValue={{this.model.name}} @firstFunc={{this.updateTeamName}} @secondFor="description" @secondLabel="Description:" @secondValue={{this.model.description}} @secondFunc={{this.updateTeamDescription}} @onSave={{this.saveTeam}} />  
