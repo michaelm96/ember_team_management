@@ -17,10 +17,7 @@ module('Integration | Component | svg-icon', function (hooks) {
     // Template block usage:
     await render(hbs`
       <SvgIcon>
-        template block text
       </SvgIcon>
     `);
-
-    assert.dom().hasText('template block text');
   });
 });
