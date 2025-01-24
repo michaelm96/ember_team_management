@@ -1,1 +1,158 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}
+
+th {
+  border-bottom: 2px solid gray;
+  text-align: center;
+  padding: 8px;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.h-20vh {
+  height: 20vh;
+}
+
+.text-2rem {
+  font-size: 2rem;
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.btn {
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  transition: 200ms;
+  width: 10rem;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-max {
+  width: max-content;
+}
+
+.edit-delete-btn:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
+}
+
+.edit-delete-btn:not(:disabled):hover,
+.edit-delete-btn:not(:disabled):focus {
+  outline: 0;
+  box-shadow:
+    0 0 0 2px rgb(0 0 0 / 20%),
+    0 3px 8px 0 rgb(0 0 0 / 15%);
+}
+
+.edit-color {
+  background-color: #cabd00;
+}
+
+.edit-color:not(:disabled):hover,
+.edit-color:not(:disabled):focus {
+  background: #f4e603;
+}
+
+.delete-color {
+  background-color: crimson;
+}
+
+.delete-color:not(:disabled):hover,
+.delete-color:not(:disabled):focus {
+  background: #d90000;
+}
+
+.add-color {
+  background-color: darkblue;
+}
+
+.add-color:not(:disabled):hover,
+.add-color:not(:disabled):focus {
+  background-color: blue;
+}
+
+.table {
+  height: 40vh;
+  overflow: overlay;
+  padding: 0;
+  border: 2px solid gray;
+}
+
+.w-33 {
+  width: 33%;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-20 {
+  font-size: 1.25rem;
+}
+
+.w-120 {
+  width: 120px;
+}

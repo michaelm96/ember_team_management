@@ -1,0 +1,35 @@
+<div class="flex justify-between mb-4">
+  <b class="text-2rem">Teams</b>
+  <button
+    type="button"
+    class="btn edit-delete-btn add-color flex align-center gap-4 w-max"
+    {{on "click" this.goToAddTeam}}
+  >
+    <SvgIcon @name="add-icon" @alt="add-icon" @width="20" @height="20" />Add New
+    Team</button>
+</div>
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model as |team|}}
+        <tr>
+          <td>{{team.name}}</td>
+          <td>{{team.description}}</td>
+          <td
+            {{on "click" (fn this.goToDetails team.id)}}
+            class="view-details-link"
+          >
+            View Details
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
