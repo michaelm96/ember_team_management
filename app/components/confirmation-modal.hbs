@@ -1,6 +1,6 @@
 <div class="modal-overlay" {{on "click" this.close}}>    
   <div class="modal-content" {{on "click" (stop-propagation)}}>    
-    <h2>Confirmation</h2>    
+    <h2>{{@confirmationTitle}}</h2>    
     <p>{{@message}}</p>    
     <div class="flex justify-center gap-4">
       <button class="bg-red btn edit-delete-btn flex align-center gap-4 w-max" type="button" {{on "click" this.confirm}}>Confirm</button>    

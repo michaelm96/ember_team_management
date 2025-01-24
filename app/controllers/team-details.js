@@ -10,8 +10,9 @@ export default class TeamDetailsController extends Controller {
 
   @tracked showModal = false; // Track modal visibility
   @tracked teamToDelete = null; // Track the team to delete
-  @tracked memberToDelete = null; // Track the team to delete
-  @tracked modalMessage = ''; // Track the team to delete
+  @tracked memberToDelete = null; // Track the member to delete
+  @tracked modalMessage = ''; // Track the description modal confirmation
+  @tracked titleMessage = ''; // Track the title modal confirmation
   @tracked deleteFunc = null; // Track the delete function to use
 
   deleteMember = async () => {
@@ -57,6 +58,8 @@ export default class TeamDetailsController extends Controller {
     this.memberToDelete = team.from === 'DELETE_MEMBER' ? team.memberId : null;
     this.deleteFunc =
       team.from === 'DELETE_MEMBER' ? this.deleteMember : this.deleteTeam;
+    this.titleMessage =
+      team.from === 'DELETE_MEMBER' ? 'Delete Member!' : 'Delete Team!';
     this.modalMessage =
       team.from === 'DELETE_MEMBER'
         ? 'Are you sure you want to delete this member?'
